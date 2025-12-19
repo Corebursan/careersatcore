@@ -1,0 +1,371 @@
+/* Top Banner */
+.top-banner {
+    background-color: var(--nav-bg);
+    padding: 10px 0;
+}
+
+.top-banner-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.banner-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.banner-icon {
+    color: var(--primary-red);
+    font-size: 20px;
+}
+
+.banner-text {
+    color: var(--text-light);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.email-subscribe {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.email-input {
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 200px;
+    outline: none;
+    transition: var(--transition);
+}
+
+.email-input:focus {
+    border-color: var(--primary-teal);
+}
+
+.subscribe-btn {
+    background-color: var(--primary-red);
+    color: var(--text-light);
+    border: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.subscribe-btn:hover {
+    background-color: #c0392b;
+}
+
+.banner-close {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 18px;
+    cursor: pointer;
+    padding: 5px;
+    transition: var(--transition);
+}
+
+.banner-close:hover {
+    color: var(--primary-red);
+}
+
+/* Main Header */
+.main-header {
+    background-color: var(--bg-light);
+    padding: 15px 0;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.phone-number {
+    text-align: center;
+    color: var(--text-dark);
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.phone-number span {
+    font-weight: 500;
+}
+
+.logo-nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+}
+
+.logo-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-right: 2px;
+}
+
+.logo-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.logo-bars span {
+    display: block;
+    height: 6px;
+    background-color: #555;
+    border-radius: 1px;
+}
+
+.logo-bars span:nth-child(1) {
+    width: 25px;
+}
+
+.logo-bars span:nth-child(2) {
+    width: 20px;
+}
+
+.logo-bars span:nth-child(3) {
+    width: 15px;
+}
+
+.logo-text {
+    font-size: 36px;
+    font-weight: 800;
+    color: #555;
+    letter-spacing: -2px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.beta-badge {
+    background-color: var(--primary-teal);
+    color: var(--text-light);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    align-self: flex-end;
+    margin-bottom: 5px;
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--nav-bg);
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+/* Navigation */
+.navbar {
+    background-color: var(--nav-bg);
+    border-radius: 4px;
+    padding: 0 15px;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    display: block;
+    color: var(--text-light);
+    padding: 15px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Dropdown */
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--bg-white);
+    min-width: 280px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 0 0 4px 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: var(--transition);
+    z-index: 1000;
+}
+
+.has-dropdown:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu {
+    padding: 10px 0;
+}
+
+.dropdown-menu li {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-link {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    color: var(--text-dark);
+    font-size: 14px;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.dropdown-link:hover {
+    background-color: var(--primary-red);
+    color: var(--text-light);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .nav-link {
+        padding: 15px 15px;
+    }
+}
+
+@media (max-width: 992px) {
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    .banner-left {
+        flex-wrap: wrap;
+    }
+
+    .banner-text {
+        display: none;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--nav-bg);
+        border-radius: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        z-index: 1000;
+    }
+
+    .navbar.mobile-open {
+        max-height: 500px;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .nav-link {
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .dropdown {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background-color: rgba(0, 0, 0, 0.2);
+        min-width: 100%;
+        display: none;
+    }
+
+    .has-dropdown:hover .dropdown {
+        display: block;
+    }
+
+    .dropdown-link {
+        color: var(--text-light);
+        padding-left: 40px;
+    }
+
+    .dropdown-link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .logo-nav-container {
+        position: relative;
+    }
+}
+
+@media (max-width: 576px) {
+    .email-subscribe {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .email-input {
+        width: 100%;
+    }
+
+    .subscribe-btn {
+        width: 100%;
+    }
+
+    .logo-text {
+        font-size: 28px;
+    }
+}
+
