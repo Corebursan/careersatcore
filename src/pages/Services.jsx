@@ -61,12 +61,19 @@ const Services = () => {
 
     return (
         <div className="services-page">
-            <div className="page-banner">
-                <div className="banner-content">
-                    <h1>Our Services</h1>
-                    <p>Comprehensive recruitment solutions for all your needs</p>
+            {/* Core Services Introduction */}
+            <section className="core-services-intro">
+                <div className="core-services-container">
+                    <h1 className="core-services-heading">CORE SERVICES</h1>
+                    <div className="core-services-divider"></div>
+                    <p>
+                        Core careers recruitment division are a cutting edge in the industry. It combines a pool of both experienced and enthusiastic consultants who aspire to meet all the challenges of this Industry.
+                    </p>
+                    <p>
+                        We are engaged in offering a wide range of Staffing Solutions as per defined industry standards and specific requirements. Geography is not at all a boundary to us and we are always ready to stretch our helpful hands to the extreme limits of our client's needs-in any part of India.
+                    </p>
                 </div>
-            </div>
+            </section>
 
             <div className="page-layout">
                 {/* Sidebar */}

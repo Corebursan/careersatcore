@@ -1,0 +1,165 @@
+/* Terms of Service Page */
+.terms-of-service-page {
+    min-height: 100vh;
+    background-color: var(--bg-white);
+}
+
+/* Terms Section */
+.terms-section {
+    padding: 40px 0;
+}
+
+.terms-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Section Heading */
+.terms-section .section-heading {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+/* Section Divider - Line with dots */
+.terms-section .section-divider {
+    position: relative;
+    height: 2px;
+    background: linear-gradient(to right, var(--text-dark) 0%, var(--border-color) 100%);
+    margin-bottom: 25px;
+}
+
+.terms-section .section-divider::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: var(--text-dark);
+    border-radius: 50%;
+}
+
+.terms-section .section-divider::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: var(--border-color);
+    border-radius: 50%;
+}
+
+/* Terms Content */
+.terms-container p {
+    color: var(--text-dark);
+    line-height: 1.8;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+/* Sub Headings */
+.terms-section .sub-heading {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+/* Discover Section */
+.terms-of-service-page .discover-section {
+    padding: 30px 0;
+    background-color: var(--bg-light);
+}
+
+.terms-of-service-page .discover-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.terms-of-service-page .discover-text {
+    color: var(--text-dark);
+    font-size: 14px;
+}
+
+.terms-of-service-page .discover-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-dark);
+    font-size: 14px;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.terms-of-service-page .discover-link:hover {
+    background-color: #3b5998;
+    color: var(--text-light);
+    border-color: #3b5998;
+}
+
+.terms-of-service-page .discover-link:hover .fb-icon {
+    background-color: var(--text-light);
+    color: #3b5998;
+}
+
+.terms-of-service-page .fb-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background-color: #3b5998;
+    color: var(--text-light);
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .terms-section .section-heading {
+        font-size: 20px;
+    }
+
+    .terms-container p {
+        text-align: left;
+    }
+
+    .terms-of-service-page .discover-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .terms-section {
+        padding: 30px 0;
+    }
+
+    .terms-section .section-heading {
+        font-size: 18px;
+    }
+
+    .terms-section .sub-heading {
+        font-size: 15px;
+    }
+}

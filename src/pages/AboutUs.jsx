@@ -5,6 +5,91 @@ import './AboutUs.css';
 const AboutUs = () => {
     const location = useLocation();
     const [activeSection, setActiveSection] = useState('company-profile');
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const [isFullscreen, setIsFullscreen] = useState(false);
+
+    // Recruitment Process Slides Data
+    const recruitmentSlides = [
+        {
+            title: 'PROCESS FLOW FOR RECRUITMENT',
+            description: '',
+            image: null
+        },
+        {
+            title: 'Job Posting',
+            description: 'Open requisition is posted on the website.',
+            image: '📋'
+        },
+        {
+            title: 'Candidate Generation',
+            description: 'from internet portals, employee referrals, headhunters.',
+            image: '🌐'
+        },
+        {
+            title: 'Resume Screening',
+            description: 'consultants screen resumes for specific match',
+            image: '📄'
+        },
+        {
+            title: 'Internal Candidates Review',
+            description: 'Review the candidate CVs matching the job requisition',
+            image: '👥'
+        },
+        {
+            title: 'First Approach',
+            description: 'The consultants approach the screened candidates',
+            image: '📞'
+        },
+        {
+            title: 'First Shortlist',
+            description: 'consultants forward the first list of shortlisted candidates to the hiring company.',
+            image: '📝'
+        },
+        {
+            title: 'Hiring Manager Reviews',
+            description: 'the hiring manager reviews the pre-screened candidate resumes submitted by the consultants',
+            image: '👔'
+        },
+        {
+            title: 'Interview Scheduled',
+            description: 'qualified candidates are called for a face to face interview with the company',
+            image: '🤝'
+        },
+        {
+            title: 'Reference Check',
+            description: 'whether the candidate participates in the interview or not in checked from both ends',
+            image: '✅'
+        },
+        {
+            title: 'Offer Developed',
+            description: 'if selected the HR manager of the company extends the offer to the candidate',
+            image: '📨'
+        },
+        {
+            title: 'Offer Declined',
+            description: 'If candidate turns offer then the consultants again review back the candidates and present a fresh list of shortlist',
+            image: '❌'
+        },
+        {
+            title: 'Follow Up',
+            description: 'if candidate leaves the company within 3 months or is terminated from the office, a replacement is provided',
+            image: '🔄'
+        }
+    ];
+
+    const totalSlides = recruitmentSlides.length;
+
+    const nextSlide = () => {
+        setCurrentSlide((prev) => (prev + 1) % totalSlides);
+    };
+
+    const prevSlide = () => {
+        setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+    };
+
+    const toggleFullscreen = () => {
+        setIsFullscreen(!isFullscreen);
+    };
 
     const sections = [
         { id: 'company-profile', label: 'Company Profile' },
@@ -58,12 +143,16 @@ const AboutUs = () => {
 
     return (
         <div className="about-page">
-            <div className="page-banner">
-                <div className="banner-content">
-                    <h1>About Us</h1>
-                    <p>Learn more about Core Career and our mission</p>
+            {/* About Us Introduction */}
+            <section className="about-intro">
+                <div className="about-intro-container">
+                    <h1 className="about-intro-heading">ABOUT US</h1>
+                    <div className="about-intro-divider"></div>
+                    <p>
+                        Core careers Pvt ltd is a staffing and recruitment services firm based in Kolkata, West Bengal. Core was established in the year 2002. Since then we are providing recruitment services in more than 500 companies (including FORTUNE 500 companies) across the country. Our client base over the years has grown extensively and today we are dealing with the best organizations in the industry. Starting from engineering and manufacturing to pharmaceuticals, banking and financial services, consumer goods and service industry, we are catering the recruitment needs of almost every sector of the industry. We are one of the leading consultancy firm engaged in offering our solutions for Job seekers, Head hunting, Man Power recruitment, Internships, Campus placements, Market research, Industrial training, Professional resume writing and other career related solutions and advisory services.
+                    </p>
                 </div>
-            </div>
+            </section>
 
             <div className="page-layout">
                 {/* Sidebar */}
@@ -91,7 +180,7 @@ const AboutUs = () => {
                     <section id="company-profile" className="content-section">
                         <h2>Company Profile</h2>
                         <p>
-                            Core Career is one of India's leading placement consultancies, established with a vision to bridge the gap between talented professionals and growing organizations. With over 15 years of experience in the recruitment industry, we have successfully placed thousands of candidates across various sectors.
+                            Core Career is one of India's leading placement consultancies, established with a vision to bridge the gap between talented professionals and growing organizations. With over 25+ years of experience in the recruitment industry, we have successfully placed thousands of candidates across various sectors.
                         </p>
                         <p>
                             Our team of experienced recruiters understands the unique requirements of both employers and job seekers, ensuring perfect matches that lead to long-term success. We operate across multiple locations in India and have expanded our services internationally.
@@ -139,54 +228,49 @@ const AboutUs = () => {
 
                     {/* Recruitment Process */}
                     <section id="recruitment-process" className="content-section">
-                        <h2>Recruitment Process with Process Flow</h2>
+                        <h2>Recruitment Process</h2>
                         <p>
-                            Our streamlined recruitment process ensures efficiency and quality at every step. Here's how we work:
+                            Core Careers have designed a unique recruitment process model that enables our clients to filtrate the best from available candidates. This helps to end the whole process of recruitment which is quite tiresome, to complete quickly.
                         </p>
-                        <div className="process-flow">
-                            <div className="process-step">
-                                <div className="step-number">1</div>
-                                <div className="step-content">
-                                    <h4>Requirement Analysis</h4>
-                                    <p>We begin by understanding your specific requirements, company culture, and expectations.</p>
+                        
+                        {/* Slideshow Container */}
+                        <div className={`slideshow-container ${isFullscreen ? 'fullscreen' : ''}`}>
+                            <div className="slideshow-content">
+                                <div className="slide">
+                                    {recruitmentSlides[currentSlide].image && (
+                                        <div className="slide-icon">{recruitmentSlides[currentSlide].image}</div>
+                                    )}
+                                    <h3 className="slide-title">{recruitmentSlides[currentSlide].title}</h3>
+                                    {recruitmentSlides[currentSlide].description && (
+                                        <p className="slide-description">{recruitmentSlides[currentSlide].description}</p>
+                                    )}
                                 </div>
                             </div>
-                            <div className="process-step">
-                                <div className="step-number">2</div>
-                                <div className="step-content">
-                                    <h4>Candidate Sourcing</h4>
-                                    <p>Our team sources candidates through multiple channels including our extensive database, job portals, and referrals.</p>
+                            
+                            <div className="slideshow-controls">
+                                <div className="slide-navigation">
+                                    <button className="nav-btn" onClick={prevSlide}>&#10094;</button>
+                                    <span className="slide-counter">{currentSlide + 1} of {totalSlides}</span>
+                                    <button className="nav-btn" onClick={nextSlide}>&#10095;</button>
                                 </div>
-                            </div>
-                            <div className="process-step">
-                                <div className="step-number">3</div>
-                                <div className="step-content">
-                                    <h4>Screening & Evaluation</h4>
-                                    <p>Candidates undergo thorough screening including skill assessments, background verification, and preliminary interviews.</p>
-                                </div>
-                            </div>
-                            <div className="process-step">
-                                <div className="step-number">4</div>
-                                <div className="step-content">
-                                    <h4>Client Interview</h4>
-                                    <p>Shortlisted candidates are presented to clients for interviews, with our team facilitating the entire process.</p>
-                                </div>
-                            </div>
-                            <div className="process-step">
-                                <div className="step-number">5</div>
-                                <div className="step-content">
-                                    <h4>Selection & Onboarding</h4>
-                                    <p>We assist in offer negotiation and ensure smooth onboarding for successful candidates.</p>
-                                </div>
-                            </div>
-                            <div className="process-step">
-                                <div className="step-number">6</div>
-                                <div className="step-content">
-                                    <h4>Follow-up Support</h4>
-                                    <p>Post-placement support to ensure satisfaction of both employer and employee.</p>
+                                <div className="slideshow-actions">
+                                    <button className="action-btn share-btn" title="Share">
+                                        <span>↗</span>
+                                    </button>
+                                    <button 
+                                        className="action-btn fullscreen-btn" 
+                                        onClick={toggleFullscreen}
+                                        title={isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
+                                    >
+                                        <span>{isFullscreen ? '⊡' : '⛶'}</span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
+                        
+                        <p style={{marginTop: '20px'}}>
+                            Our fully integrated staff recruitment and selection process includes an elaborate assignment briefing, short listing of CVs, quick turnaround, psychometric analysis, interview techniques. We also cater to close the placement with the offer letter on behalf of the client and helping the clients in reference checks of offered candidates so that only candidates of highest calibre can ideally match their ultimate needs.
+                        </p>
                     </section>
 
                     {/* Client Testimonials */}

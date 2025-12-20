@@ -52,12 +52,14 @@ const Register = () => {
 
     return (
         <div className="register-page">
-            <div className="page-banner">
-                <div className="banner-content">
-                    <h1>Register</h1>
+            {/* Register Introduction */}
+            <section className="page-intro">
+                <div className="page-intro-container">
+                    <h1 className="page-intro-heading">REGISTER</h1>
+                    <div className="page-intro-divider"></div>
                     <p>Join Core Career and unlock career opportunities</p>
                 </div>
-            </div>
+            </section>
 
             <div className="register-container">
                 {/* Registration Type Tabs */}

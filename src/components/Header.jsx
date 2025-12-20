@@ -61,11 +61,6 @@ const Header = () => {
             {/* Main Header */}
             <div className="main-header">
                 <div className="header-content">
-                    {/* Phone Number */}
-                    <div className="phone-number">
-                        <span>📞 +91 98 3051 8296</span>
-                    </div>
-
                     {/* Logo and Navigation */}
                     <div className="logo-nav-container">
                         <Link to="/" className="logo">

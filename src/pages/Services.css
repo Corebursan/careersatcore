@@ -4,6 +4,69 @@
     min-height: 100vh;
 }
 
+/* Core Services Introduction */
+.core-services-intro {
+    background-color: var(--bg-light);
+    padding: 40px 0;
+}
+
+.core-services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.core-services-heading {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+/* Core Services Divider - Dotted line */
+.core-services-divider {
+    position: relative;
+    height: 1px;
+    border-bottom: 2px dashed var(--border-color);
+    margin-bottom: 20px;
+}
+
+.core-services-divider::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: var(--text-dark);
+    border-radius: 50%;
+}
+
+.core-services-divider::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: var(--border-color);
+    border-radius: 50%;
+}
+
+.core-services-container p {
+    color: var(--text-dark);
+    line-height: 1.8;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.core-services-container p:last-child {
+    margin-bottom: 0;
+}
+
 /* Service Features */
 .service-features {
     display: grid;

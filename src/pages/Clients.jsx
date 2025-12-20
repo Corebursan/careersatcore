@@ -38,12 +38,14 @@ const Clients = () => {
 
     return (
         <div className="clients-page">
-            <div className="page-banner">
-                <div className="banner-content">
-                    <h1>Our Clients</h1>
+            {/* Clients Introduction */}
+            <section className="page-intro">
+                <div className="page-intro-container">
+                    <h1 className="page-intro-heading">OUR CLIENTS</h1>
+                    <div className="page-intro-divider"></div>
                     <p>Trusted by leading organizations across industries</p>
                 </div>
-            </div>
+            </section>
 
             <div className="clients-container">
                 {/* Stats Section */}

@@ -76,8 +76,8 @@ const Footer = () => {
             <div className="footer-bottom">
                 <p>&copy; {new Date().getFullYear()} Core Career. All rights reserved.</p>
                 <div className="footer-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
+                    <Link to="/privacy-policy">Privacy Policy</Link>
+                    <Link to="/terms-of-service">Terms of Service</Link>
                     <a href="#">Sitemap</a>
                 </div>
             </div>

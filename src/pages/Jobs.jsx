@@ -110,12 +110,14 @@ const Jobs = () => {
 
     return (
         <div className="jobs-page">
-            <div className="page-banner">
-                <div className="banner-content">
-                    <h1>Job Openings</h1>
+            {/* Jobs Introduction */}
+            <section className="page-intro">
+                <div className="page-intro-container">
+                    <h1 className="page-intro-heading">JOB OPENINGS</h1>
+                    <div className="page-intro-divider"></div>
                     <p>Find your perfect career opportunity</p>
                 </div>
-            </div>
+            </section>
 
             <div className="jobs-container">
                 {/* Search and Filter Section */}
