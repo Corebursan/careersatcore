@@ -43,7 +43,51 @@ const Clients = () => {
                 <div className="page-intro-container">
                     <h1 className="page-intro-heading">OUR CLIENTS</h1>
                     <div className="page-intro-divider"></div>
-                    <p>Trusted by leading organizations across industries</p>
+                    <p className="clients-main-description">
+                        CORE as a brand has been serving the recruitment industry since 11 years and has emerged as a well-known recruitment partner for more than 100 top companies around the world. Our service objective is to provide the client with complete HR solutions with assured quality based on an intrinsic understanding of their needs. We have served clients in various verticals including Insurance, Telecom, Financial, FMCG & Pharmaceuticals, Real Estate, IT and others. Few of our top clients are:
+                    </p>
+                    <div className="top-clients-list">
+                        <div className="clients-column">
+                            <span>Kodak India Ltd.</span>
+                            <span>Pidilite</span>
+                            <span>HDFC Standard Life Insurance</span>
+                            <span>Om Kotak Mahindra Life Insurance</span>
+                            <span>Tata AIG</span>
+                            <span>Aviva Life Insurance</span>
+                            <span>Birla Sun Life Insurance</span>
+                            <span>Lafarge</span>
+                        </div>
+                        <div className="clients-column">
+                            <span>Hutchinson Telecom</span>
+                            <span>Reliance Infocomm</span>
+                            <span>Reliance Telecom</span>
+                            <span>Tata Teleservices</span>
+                            <span>Siemens</span>
+                            <span>Nokia</span>
+                            <span>Godrej & Boyce</span>
+                        </div>
+                        <div className="clients-column">
+                            <span>Cholamandalam DBS</span>
+                            <span>ICICI Bank</span>
+                            <span>ABN Amro</span>
+                            <span>Apeejay Group</span>
+                            <span>Magma Leasing Ltd.</span>
+                            <span>Citi Financial India</span>
+                            <span>TATA Capital</span>
+                            <span>HLL</span>
+                            <span>Pioneer Property</span>
+                        </div>
+                        <div className="clients-column">
+                            <span>Videocon</span>
+                            <span>Ambuja Constructions</span>
+                            <span>Eveready</span>
+                            <span>Blue Star</span>
+                            <span>Tata AIG</span>
+                            <span>Blue Star</span>
+                            <span>Titan Industries Ltd.</span>
+                            <span>LG Electronics</span>
+                        </div>
+                    </div>
                 </div>
             </section>
 

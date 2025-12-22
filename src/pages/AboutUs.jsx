@@ -179,10 +179,37 @@ const AboutUs = () => {
                     {/* Company Profile */}
                     <section id="company-profile" className="content-section">
                         <h2>Company Profile</h2>
-                        <p>
+                        
+                        {/* About Core - Establishment Info */}
+                        <p className="justify-text">
+                            Core careers Pvt ltd is a staffing and recruitment services firm based in Kolkata, West Bengal. Core was established in the year 2002. Since then we are providing recruitment services in more than 500 companies (including FORTUNE 500 companies) across the country. Our client base over the years has grown extensively and today we are dealing with the best organizations in the industry. Starting from engineering and manufacturing to pharmaceuticals, banking and financial services, consumer goods and service industry, we are catering the recruitment needs of almost every sector of the industry. We are one of the leading consultancy firm engaged in offering our solutions for Job seekers, Head hunting, Man Power recruitment, Internships, Campus placements, Market research, Industrial training, Professional resume writing and other career related solutions and advisory services.
+                        </p>
+
+                        {/* Our Mission */}
+                        <div className="mission-strength-item">
+                            <div className="bubble-label mission">
+                                <span>OUR</span>
+                                <span>MISSION</span>
+                            </div>
+                            <p className="justify-text">
+                                We start with bridging a perpetual relationship with our clients and help them in finding the most talented and outstanding candidates fitted to the company's profile and culture. All this is done within a scheduled framework saving the both ends their time and energy.
+                            </p>
+                        </div>
+
+                        {/* Strengths */}
+                        <div className="mission-strength-item">
+                            <div className="bubble-label strengths">
+                                <span>STRENGTHS</span>
+                            </div>
+                            <p className="justify-text">
+                                The Core group of consultants are consistently working on the best recruiting strategies. Clients can count on us as we take care of the candidates pre-screening, evaluation, interview, research, opening and closing of jobs.
+                            </p>
+                        </div>
+
+                        <p className="justify-text">
                             Core Career is one of India's leading placement consultancies, established with a vision to bridge the gap between talented professionals and growing organizations. With over 25+ years of experience in the recruitment industry, we have successfully placed thousands of candidates across various sectors.
                         </p>
-                        <p>
+                        <p className="justify-text">
                             Our team of experienced recruiters understands the unique requirements of both employers and job seekers, ensuring perfect matches that lead to long-term success. We operate across multiple locations in India and have expanded our services internationally.
                         </p>
                         <div className="info-box">
@@ -197,11 +224,22 @@ const AboutUs = () => {
                     </section>
 
                     {/* Why Core */}
-                    <section id="why-core" className="content-section">
-                        <h2>Why Core</h2>
-                        <p>
-                            Choosing Core Career means partnering with a recruitment agency that truly cares about your success. Here's why businesses and job seekers trust us:
-                        </p>
+                    <section id="why-core" className="content-section why-core-section">
+                        <h2>WHY CORE and HOW CAN CORE HELP YOU?</h2>
+                        
+                        <div className="why-core-intro">
+                            <p>
+                                Technology is developing, so are recruitment methods. Especially over a decade technology has played an increasingly larger role in the recruitment industry. By looking at these technological progressions it's easy to make out how hiring methods have transformed immensely.
+                            </p>
+                            <p>
+                                Advertisement- which apparently acted as a source of recruitment has given away to the whole new concept of recruitment consultancies. Advertising job openings in newspapers, televisions, magazines or pamphlets considered as effective modes of recruitment few years back is slowly losing its significance. The main reason behind this is time has become the most important thing today. Any process that incorporates a huge amount of time is a complete no in today's technological world. Besides, you need to pay your fees in advance when hiring through these advertising mediums and after all this you are assured with no guaranteed results.
+                            </p>
+                            <p>
+                                Fortunately, the contemporary workplace has given rise to the necessities of recruitment the best means to get the labour force that you want, at the same time ensuring that you obtain only the finest and the most dexterous employee in the work pool to suit your definite job opening requirements.
+                            </p>
+                        </div>
+
+                        {/* Feature Cards */}
                         <div className="features-list">
                             <div className="feature-card">
                                 <div className="feature-icon">🎯</div>
@@ -222,6 +260,44 @@ const AboutUs = () => {
                                 <div className="feature-icon">📊</div>
                                 <h4>Data-Driven</h4>
                                 <p>We leverage technology and data analytics to optimize our recruitment strategies.</p>
+                            </div>
+                        </div>
+
+                        {/* Core Assistance Section */}
+                        <h3 className="core-assistance-title">CORE ASSISTANCE:</h3>
+                        
+                        <div className="assistance-item">
+                            <span className="assistance-label">FIND EMPLOYEES EASILY:</span>
+                            <span className="assistance-text"> We make the hiring process easier by sourcing candidates, filtering them through an intense interview process, assessing their skill and finally sending the cream of the crop to the company.</span>
+                        </div>
+                        
+                        <div className="assistance-item">
+                            <span className="assistance-label">SAVE MONEY:</span>
+                            <span className="assistance-text"> Instead of paying unreasonably high prices just to circulate advertisements through newspapers, televisions, magazines and all other forms of media just to advertise for vacancies, followed by spending more economy in human resources to sort out various resumes and applicants, pay the services to CORE to get the best qualified employees as needed. If the prices paid for ads and human resources are compared against the fee paid for CORE services, it can be openly understood how much money one is saving. Unlike advertising or other modes of recruitment payment is accepted only after the requirement is fulfilled with full satisfaction.</span>
+                        </div>
+
+                        {/* Time Saver Section */}
+                        <div className="time-saver-box">
+                            <span className="time-saver-label">TIME SAVER:</span>
+                            <span className="time-saver-text"> CORE entitles to lessen the amount of applicants that one would get and have to monitor through, compared to posting various advertisements in different forms of media. CORE only sends a selected pool of employees that are assured to platform with all the required skills.</span>
+                        </div>
+
+                        {/* Comparison Cards */}
+                        <div className="comparison-cards">
+                            <div className="comparison-card advertisement">
+                                <h4>ADVERTISEMENT</h4>
+                                <p>Risky, lots of responses</p>
+                                <p>=</p>
+                                <p>Lots of work</p>
+                                <p>All the money paid upfront</p>
+                                <p className="highlight-text">No guarantee.</p>
+                            </div>
+                            <div className="comparison-card core">
+                                <h4>CORE</h4>
+                                <p>Less expensive,</p>
+                                <p>screened candidates</p>
+                                <p>No hire = No fee</p>
+                                <p className="highlight-text">3 months<br/>replacement guaranteed</p>
                             </div>
                         </div>
                     </section>

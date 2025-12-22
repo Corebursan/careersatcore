@@ -355,10 +355,10 @@ const Home = () => {
                                                 <span className="highlight-tag red">
                                                     &gt; {highlight.right}
                                                 </span>
-                                            </div>
+                            </div>
                                         ))}
-                                    </div>
-                                </div>
+                        </div>
+                            </div>
                             ))}
                         </div>
                     </div>
@@ -439,7 +439,7 @@ const Home = () => {
                                         <h3>{service.title}</h3>
                                         <p>{service.description}</p>
                                         <span className="read-more-btn">Read more</span>
-                                    </Link>
+                        </Link>
                                 ))}
                                 {/* Duplicated cards for seamless loop */}
                                 {services.slice(0, 4).map((service, index) => (
@@ -452,7 +452,7 @@ const Home = () => {
                                         <h3>{service.title}</h3>
                                         <p>{service.description}</p>
                                         <span className="read-more-btn">Read more</span>
-                                    </Link>
+                        </Link>
                                 ))}
                             </div>
                         </div>
@@ -466,39 +466,39 @@ const Home = () => {
         </div>
 
         {/* Full Width Sections - Outside Sidebar */}
-        {/* Why Choose Us */}
+            {/* Why Choose Us */}
         <section className="why-choose-section full-width-section">
-            <div className="why-choose-container">
-                <h2 className="section-title">Why Choose Core Career?</h2>
-                <div className="features-grid">
-                    <div className="feature-item">
-                        <div className="feature-number">1000+</div>
-                        <div className="feature-text">Clients Served</div>
-                    </div>
-                    <div className="feature-item">
-                        <div className="feature-number">800+</div>
-                        <div className="feature-text">Locations</div>
-                    </div>
-                    <div className="feature-item">
-                        <div className="feature-number">50000+</div>
-                        <div className="feature-text">Placements</div>
-                    </div>
-                    <div className="feature-item">
+                <div className="why-choose-container">
+                    <h2 className="section-title">Why Choose Core Career?</h2>
+                    <div className="features-grid">
+                        <div className="feature-item">
+                            <div className="feature-number">1000+</div>
+                            <div className="feature-text">Clients Served</div>
+                        </div>
+                        <div className="feature-item">
+                            <div className="feature-number">800+</div>
+                            <div className="feature-text">Locations</div>
+                        </div>
+                        <div className="feature-item">
+                            <div className="feature-number">50000+</div>
+                            <div className="feature-text">Placements</div>
+                        </div>
+                        <div className="feature-item">
                         <div className="feature-number">25+</div>
-                        <div className="feature-text">Years Experience</div>
+                            <div className="feature-text">Years Experience</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        {/* Contact CTA */}
+            {/* Contact CTA */}
         <section className="contact-cta full-width-section">
-            <div className="contact-cta-container">
-                <h2>Ready to find your perfect career match?</h2>
-                <p>Get in touch with us today and let us help you achieve your goals.</p>
-                <Link to="/contact" className="btn btn-primary">Contact Us</Link>
-            </div>
-        </section>
+                <div className="contact-cta-container">
+                    <h2>Ready to find your perfect career match?</h2>
+                    <p>Get in touch with us today and let us help you achieve your goals.</p>
+                    <Link to="/contact" className="btn btn-primary">Contact Us</Link>
+                </div>
+            </section>
         </>
     );
 };
