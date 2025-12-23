@@ -323,6 +323,26 @@ img {
   color: var(--text-light);
 }
 
+.sidebar-menu button {
+  display: block;
+  width: 100%;
+  padding: 15px 20px;
+  background: none;
+  border: none;
+  text-align: left;
+  color: var(--text-dark);
+  font-size: 14px;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: inherit;
+}
+
+.sidebar-menu button:hover,
+.sidebar-menu button.active {
+  background-color: var(--primary-red);
+  color: var(--text-light);
+}
+
 .main-content {
   flex: 1;
   min-width: 0;
@@ -334,7 +354,7 @@ img {
   box-shadow: var(--shadow);
   padding: 30px;
   margin-bottom: 30px;
-  scroll-margin-top: 20px;
+  scroll-margin-top: 140px;
 }
 
 .content-section h2 {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import './Services.css';
 
 const Services = () => {
@@ -14,7 +14,7 @@ const Services = () => {
         { id: 'internships', label: 'Internships' },
         { id: 'recruitment-job-seekers', label: 'Recruitment for job seekers' },
         { id: 'training-program', label: 'Training Program' },
-        { id: 'resume-writing', label: 'Resume Writing' },
+        { id: 'resume-writing', label: 'Resume Writing', isLink: true, path: '/resume-writing' },
     ];
 
     useEffect(() => {
@@ -83,12 +83,18 @@ const Services = () => {
                         <ul>
                             {sections.map(section => (
                                 <li key={section.id}>
-                                    <button
-                                        onClick={() => scrollToSection(section.id)}
-                                        className={activeSection === section.id ? 'active' : ''}
-                                    >
-                                        {section.label}
-                                    </button>
+                                    {section.isLink ? (
+                                        <Link to={section.path} className="sidebar-link-btn">
+                                            {section.label}
+                                        </Link>
+                                    ) : (
+                                        <button
+                                            onClick={() => scrollToSection(section.id)}
+                                            className={activeSection === section.id ? 'active' : ''}
+                                        >
+                                            {section.label}
+                                        </button>
+                                    )}
                                 </li>
                             ))}
                         </ul>
@@ -280,6 +286,45 @@ const Services = () => {
                         <p>
                             Enhance your skills and employability with our comprehensive training programs. We offer both technical and soft skills training to help you succeed in today's competitive job market.
                         </p>
+
+                        {/* Training Programme Types */}
+                        <div className="training-programmes">
+                            <div className="programme-item">
+                                <h4>Generic Training Programmes</h4>
+                                <p>
+                                    Generic training programmes relating to soft skill development attitude, motivation, communication skills, grooming, body language and the like. As these are generalized plans they could be customized to meet the specific needs of the target audience, and scaled up or down based on the genre being addressed.
+                                </p>
+                            </div>
+
+                            <div className="programme-item">
+                                <h4>Product Training Programmes</h4>
+                                <p>
+                                    Product training programmes these could be approached in 2 ways either, where the client briefs us with the raw content and we channelize it into a training format with additional inputs from the various relevant areas of soft skills; or, where the entire pre-designed content dump and program flow comes from them, and our trainers just act as facilitators to deliver this to the target audience.
+                                </p>
+                            </div>
+
+                            <div className="programme-item">
+                                <h4>Lifestyle Enhancement Programmes</h4>
+                                <p>
+                                    Lifestyle enhancement programmes like de-stress and time management workshops, both at local venues and at outside locales, improving the quality of life etc.
+                                </p>
+                            </div>
+
+                            <div className="programme-item">
+                                <h4>Specialized Programs</h4>
+                                <p>
+                                    Specialized programs in selling skills, HR, team building, marketing techniques etc. based on the specific requirements of the client. These would be positioned so that content is suited to the genre of people that it is aimed at.
+                                </p>
+                            </div>
+
+                            <div className="programme-item">
+                                <h4>Psychological Testing & Assessment</h4>
+                                <p>
+                                    Any programmes that require psychological testing or SWOT analysis, to help formulate KRAs or training needs, and also as an employment tool.
+                                </p>
+                            </div>
+                        </div>
+
                         <div className="training-categories">
                             <div className="training-card">
                                 <h4>Technical Training</h4>
@@ -315,49 +360,28 @@ const Services = () => {
                     <section id="resume-writing" className="content-section">
                         <h2>Resume Writing</h2>
                         <p>
-                            A well-crafted resume is your first step to landing your dream job. Our professional resume writing service helps you present your skills and experience in the best possible way.
+                            A resume is like an identity for a job seeker. Recruiters hardly spent 30 seconds on judging a resume and validating that candidate for the required position. In this case what you need is a professionally written resume that will help you stand out from the crowd.
                         </p>
-                        <div className="service-packages">
-                            <div className="package-card">
-                                <div className="package-header">
-                                    <h4>Basic</h4>
-                                    <div className="package-price">₹999</div>
-                                </div>
-                                <ul>
-                                    <li>Professional resume rewrite</li>
-                                    <li>ATS-friendly format</li>
-                                    <li>1 revision included</li>
-                                    <li>Delivery in 3-5 days</li>
-                                </ul>
+                        <p>
+                            Our professional resume writing service offers Text Resume, Resume Quality Check, and Visual Resume services at various levels - Entry Level, Mid-Level, and Senior Level.
+                        </p>
+                        <div className="resume-service-highlights">
+                            <div className="highlight-card">
+                                <h4>📝 Text Resume</h4>
+                                <p>Professionally written resumes tailored to your industry</p>
                             </div>
-                            <div className="package-card featured">
-                                <div className="package-badge">Popular</div>
-                                <div className="package-header">
-                                    <h4>Professional</h4>
-                                    <div className="package-price">₹2,499</div>
-                                </div>
-                                <ul>
-                                    <li>Everything in Basic</li>
-                                    <li>Cover letter</li>
-                                    <li>LinkedIn profile optimization</li>
-                                    <li>3 revisions included</li>
-                                    <li>Priority support</li>
-                                </ul>
+                            <div className="highlight-card">
+                                <h4>✅ Quality Check</h4>
+                                <p>Expert review and optimization of your existing resume</p>
                             </div>
-                            <div className="package-card">
-                                <div className="package-header">
-                                    <h4>Executive</h4>
-                                    <div className="package-price">₹4,999</div>
-                                </div>
-                                <ul>
-                                    <li>Everything in Professional</li>
-                                    <li>Executive bio</li>
-                                    <li>Personal branding consultation</li>
-                                    <li>Unlimited revisions</li>
-                                    <li>1-on-1 consultation call</li>
-                                </ul>
+                            <div className="highlight-card">
+                                <h4>🎨 Visual Resume</h4>
+                                <p>Dynamic, branded visual representation of your profile</p>
                             </div>
                         </div>
+                        <Link to="/resume-writing" className="btn btn-primary">
+                            Explore Resume Writing Services →
+                        </Link>
                     </section>
                 </main>
             </div>

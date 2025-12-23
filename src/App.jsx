@@ -10,6 +10,7 @@ import Register from './pages/Register';
 import Contact from './pages/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
+import ResumeWriting from './pages/ResumeWriting';
 import Footer from './components/Footer';
 import Chatbot from './components/Chatbot/Chatbot';
 
@@ -30,6 +31,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/resume-writing" element={<ResumeWriting />} />
           </Routes>
         </main>
         <Footer />

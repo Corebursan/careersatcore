@@ -270,6 +270,36 @@
     border-radius: 8px;
 }
 
+/* Training Programmes */
+.training-programmes {
+    margin: 30px 0;
+}
+
+.programme-item {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.programme-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.programme-item h4 {
+    color: var(--primary-teal);
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.programme-item p {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.8;
+    text-align: justify;
+}
+
 .training-card h4 {
     color: var(--text-dark);
     margin-bottom: 15px;
@@ -371,6 +401,60 @@
     left: 0;
     color: var(--primary-teal);
     font-weight: 700;
+}
+
+/* Sidebar Link Button */
+.sidebar-link-btn {
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+    background: none;
+    border: none;
+    text-align: left;
+    color: var(--text-dark);
+    font-size: 14px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: inherit;
+}
+
+.sidebar-link-btn:hover {
+    background-color: var(--primary-red);
+    color: var(--text-light);
+}
+
+/* Resume Service Highlights */
+.resume-service-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 25px 0;
+}
+
+.highlight-card {
+    background-color: var(--bg-white);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.highlight-card:hover {
+    transform: translateY(-5px);
+}
+
+.highlight-card h4 {
+    color: var(--text-dark);
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.highlight-card p {
+    color: #666;
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 0;
 }
 
 /* Responsive */

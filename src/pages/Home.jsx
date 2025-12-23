@@ -27,7 +27,7 @@ const Home = () => {
         { label: 'Student', link: '/register?type=student' },
         { label: 'Employer', link: '/register?type=employer' },
         { label: 'Job Seeker', link: '/register?type=jobseeker' },
-        { label: 'Resume Writing', link: '/services#resume-writing' },
+        { label: 'Resume Writing', link: '/resume-writing' },
         { label: 'Login/Register', link: '/register' },
         { label: 'Jobs', link: '/jobs' },
     ];
