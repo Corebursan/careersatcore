@@ -1,0 +1,373 @@
+/* Training Program Page */
+.training-program-page {
+    background-color: var(--bg-light);
+    min-height: 100vh;
+}
+
+/* Training Intro Content */
+.training-intro-content {
+    display: flex;
+    gap: 25px;
+    margin: 25px 0;
+    align-items: flex-start;
+}
+
+.training-image-wrapper {
+    flex: 1;
+    max-width: 400px;
+}
+
+.training-intro-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.training-features {
+    flex: 1;
+}
+
+/* Check List */
+.check-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.check-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    color: #555;
+    line-height: 1.6;
+    font-size: 14px;
+    text-align: justify;
+}
+
+.check-list li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    color: #1a73e8;
+    font-weight: 700;
+}
+
+.check-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* CTA Box */
+.cta-box {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 14px 40px;
+    background: linear-gradient(135deg, #4285f4 0%, #1a73e8 100%);
+    color: white;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(66, 133, 244, 0.4);
+}
+
+/* Tab Navigation */
+.tab-navigation {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.tab-navigation button {
+    padding: 8px 20px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.tab-navigation button:hover {
+    color: var(--primary-red);
+}
+
+.tab-navigation button.active {
+    color: var(--primary-red);
+    font-weight: 600;
+}
+
+.tab-navigation button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--primary-red);
+}
+
+.tab-divider {
+    color: var(--border-color);
+    font-size: 18px;
+}
+
+.tab-content {
+    margin-top: 20px;
+}
+
+/* Syllabus Section */
+.syllabus-intro {
+    margin-bottom: 25px;
+}
+
+.syllabus-intro h3 {
+    color: var(--text-dark);
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.syllabus-intro p {
+    color: #555;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.syllabus-heading {
+    color: var(--text-dark);
+    font-size: 18px;
+    font-weight: 600;
+    margin: 25px 0 15px 0;
+}
+
+.syllabus-tabs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-color);
+    flex-wrap: wrap;
+}
+
+.syllabus-tabs button {
+    padding: 8px 15px;
+    background: none;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.syllabus-tabs button:hover {
+    color: var(--primary-red);
+}
+
+.syllabus-tabs button.active {
+    color: var(--primary-red);
+    font-weight: 600;
+}
+
+.syllabus-tabs button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--primary-red);
+}
+
+.syllabus-content {
+    margin-top: 20px;
+}
+
+/* Faculty Section */
+.faculty-members {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.faculty-member {
+    background-color: var(--bg-light);
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-teal);
+}
+
+.faculty-name {
+    color: var(--primary-teal);
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.faculty-description {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.faculty-email {
+    color: #555;
+    font-size: 14px;
+}
+
+.faculty-email a {
+    color: var(--primary-teal);
+    text-decoration: none;
+}
+
+.faculty-email a:hover {
+    text-decoration: underline;
+}
+
+/* Contact Info Cards */
+.contact-info-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin: 30px 0;
+}
+
+.contact-card {
+    background-color: var(--bg-white);
+    padding: 30px 25px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.contact-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.contact-icon-wrapper.email-icon {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.contact-icon-wrapper.phone-icon {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    color: white;
+}
+
+.contact-icon-wrapper.location-icon {
+    background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);
+    color: white;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-info h4 {
+    color: var(--text-dark);
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.contact-info p {
+    color: #666;
+    font-size: 15px;
+    margin: 0;
+    word-break: break-word;
+}
+
+.contact-form-link {
+    background-color: var(--bg-white);
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    margin-top: 20px;
+}
+
+.contact-form-link p {
+    margin-bottom: 15px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .training-intro-content {
+        flex-direction: column;
+    }
+
+    .training-image-wrapper {
+        max-width: 100%;
+    }
+
+    .contact-info-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .tab-navigation,
+    .syllabus-tabs {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .tab-divider {
+        display: none;
+    }
+
+    .tab-navigation button.active::after,
+    .syllabus-tabs button.active::after {
+        display: none;
+    }
+
+    .contact-card {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .contact-icon-wrapper {
+        width: 50px;
+        height: 50px;
+    }
+
+    .contact-icon-wrapper svg {
+        width: 24px;
+        height: 24px;
+    }
+}

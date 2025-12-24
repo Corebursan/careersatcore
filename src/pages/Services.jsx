@@ -186,6 +186,9 @@ const Services = () => {
                                 <p>Recruitment Process Outsourcing for end-to-end hiring needs.</p>
                             </div>
                         </div>
+                        <div className="outsourcing-cta">
+                            <Link to="/outsourcing" className="btn btn-primary explore-btn">EXPLORE OUTSOURCING SERVICES →</Link>
+                        </div>
                     </section>
 
                     {/* Blue Collar */}
@@ -220,6 +223,9 @@ const Services = () => {
                                 <h4>Retail</h4>
                             </div>
                         </div>
+                        <div className="blue-collar-cta">
+                            <Link to="/blue-collar" className="btn btn-primary explore-btn">EXPLORE BLUE COLLAR SERVICES →</Link>
+                        </div>
                     </section>
 
                     {/* Internships */}
@@ -246,6 +252,9 @@ const Services = () => {
                                 <li>Cost-effective hiring</li>
                                 <li>Pre-trained candidates for full-time roles</li>
                             </ul>
+                        </div>
+                        <div className="internship-cta">
+                            <Link to="/internships" className="btn btn-primary explore-btn">EXPLORE INTERNSHIPS →</Link>
                         </div>
                     </section>
 
@@ -354,6 +363,9 @@ const Services = () => {
                                 </ul>
                             </div>
                         </div>
+                        <div className="training-cta">
+                            <Link to="/training-program" className="btn btn-primary explore-btn">EXPLORE TRAINING PROGRAM →</Link>
+                        </div>
                     </section>
 
                     {/* Resume Writing */}
@@ -379,9 +391,11 @@ const Services = () => {
                                 <p>Dynamic, branded visual representation of your profile</p>
                             </div>
                         </div>
-                        <Link to="/resume-writing" className="btn btn-primary">
-                            Explore Resume Writing Services →
-                        </Link>
+                        <div className="resume-writing-cta">
+                            <Link to="/resume-writing" className="btn btn-primary explore-btn">
+                                EXPLORE RESUME WRITING SERVICES →
+                            </Link>
+                        </div>
                     </section>
                 </main>
             </div>

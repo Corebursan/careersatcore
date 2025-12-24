@@ -1,0 +1,121 @@
+/* Blue Collar Page */
+.blue-collar-page {
+    background-color: var(--bg-light);
+    min-height: 100vh;
+}
+
+.main-content.full-width {
+    max-width: 100%;
+    width: 100%;
+}
+
+/* Two Column Grid */
+.two-column-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.column-item {
+    background-color: var(--bg-light);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.column-title {
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.column-title.job-seeker {
+    color: #8B4513;
+}
+
+.column-title.employers {
+    color: #DC143C;
+}
+
+.check-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.check-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    color: #555;
+    line-height: 1.6;
+    font-size: 14px;
+    text-align: justify;
+}
+
+.check-list li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    color: #1a73e8;
+    font-weight: 700;
+}
+
+.check-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* CTA Buttons */
+.blue-collar-cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.cta-btn {
+    padding: 15px 40px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.cta-btn.want-to-work {
+    background-color: var(--primary-red);
+}
+
+.cta-btn.want-to-hire {
+    background-color: var(--nav-bg);
+}
+
+.cta-btn.help-someone {
+    background-color: var(--primary-teal);
+}
+
+.cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .two-column-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .blue-collar-cta-buttons {
+        flex-direction: column;
+    }
+
+    .cta-btn {
+        width: 100%;
+    }
+}

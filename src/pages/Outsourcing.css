@@ -1,0 +1,89 @@
+/* Outsourcing Page */
+.outsourcing-page {
+    background-color: var(--bg-light);
+    min-height: 100vh;
+}
+
+.main-content.full-width {
+    max-width: 100%;
+    width: 100%;
+}
+
+/* Tagline */
+.outsourcing-tagline {
+    font-size: 16px;
+    color: var(--text-dark);
+    margin-top: 15px;
+    text-align: center;
+    font-style: italic;
+}
+
+.outsourcing-tagline strong {
+    color: var(--primary-red);
+    font-weight: 700;
+}
+
+/* Section Title Red */
+.section-title-red {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-red);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-red);
+}
+
+/* Benefits Section */
+.benefits-section {
+    margin: 25px 0;
+    padding: 20px;
+    background-color: var(--bg-light);
+    border-radius: 8px;
+}
+
+.benefits-section h4 {
+    color: var(--text-dark);
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.check-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.check-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+    color: #555;
+    line-height: 1.8;
+    font-size: 14px;
+    text-align: justify;
+}
+
+.check-list li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    color: #1a73e8;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.check-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .outsourcing-tagline {
+        font-size: 14px;
+    }
+
+    .section-title-red {
+        font-size: 18px;
+    }
+}

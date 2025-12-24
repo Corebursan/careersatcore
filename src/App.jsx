@@ -11,6 +11,10 @@ import Contact from './pages/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import ResumeWriting from './pages/ResumeWriting';
+import Internships from './pages/Internships';
+import TrainingProgram from './pages/TrainingProgram';
+import BlueCollar from './pages/BlueCollar';
+import Outsourcing from './pages/Outsourcing';
 import Footer from './components/Footer';
 import Chatbot from './components/Chatbot/Chatbot';
 
@@ -32,6 +36,10 @@ function App() {
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/resume-writing" element={<ResumeWriting />} />
+            <Route path="/internships" element={<Internships />} />
+            <Route path="/training-program" element={<TrainingProgram />} />
+            <Route path="/blue-collar" element={<BlueCollar />} />
+            <Route path="/outsourcing" element={<Outsourcing />} />
           </Routes>
         </main>
         <Footer />

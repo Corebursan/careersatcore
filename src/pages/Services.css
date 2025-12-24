@@ -457,6 +457,71 @@
     margin: 0;
 }
 
+/* Explore Button Styling */
+.explore-btn {
+    text-align: left !important;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    padding: 12px 25px;
+    background-color: var(--primary-red);
+    color: var(--text-light);
+    border-radius: 4px;
+    margin: 0;
+}
+
+.explore-btn:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+}
+
+/* Internship CTA Button */
+.internship-cta {
+    text-align: left !important;
+    margin-top: 25px;
+    padding-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* Training Program CTA Button */
+.training-cta {
+    text-align: left !important;
+    margin-top: 25px;
+    padding-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* Blue Collar CTA Button */
+.blue-collar-cta {
+    text-align: left !important;
+    margin-top: 25px;
+    padding-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* Outsourcing CTA Button */
+.outsourcing-cta {
+    text-align: left !important;
+    margin-top: 25px;
+    padding-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* Resume Writing CTA Button */
+.resume-writing-cta {
+    text-align: left !important;
+    margin-top: 25px;
+    padding-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .service-stats {

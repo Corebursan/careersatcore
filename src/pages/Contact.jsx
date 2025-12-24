@@ -204,10 +204,29 @@ const Contact = () => {
                 <section className="map-section">
                     <h2>Find Us</h2>
                     <div className="map-container">
-                        <div className="map-placeholder">
-                            <span>📍</span>
-                            <p>Interactive Map Coming Soon</p>
-                            <p className="map-address">Kolkata, West Bengal, India</p>
+                        <iframe
+                            src="https://www.google.com/maps?q=22.5157808,88.3865064&hl=en&z=16&output=embed"
+                            width="100%"
+                            height="450"
+                            style={{ border: 0 }}
+                            allowFullScreen=""
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            title="Core Careers Location - Vindhya Heights, Kolkata"
+                        ></iframe>
+                        <div className="map-info">
+                            <p className="map-address">
+                                <strong>Vindhya Heights</strong><br />
+                                Kolkata, West Bengal, India
+                            </p>
+                            <a 
+                                href="https://www.google.com/maps/place/Vindhya+Heights/@22.515658,88.386549,16z/data=!4m14!1m7!3m6!1s0x3a02714b504e82e9:0x5071755ef2fd7e3!2sVindhya+Heights!8m2!3d22.5157808!4d88.3865064!16s%2Fg%2F11b6jgnf4_!3m5!1s0x3a02714b504e82e9:0x5071755ef2fd7e3!8m2!3d22.5157808!4d88.3865064!16s%2Fg%2F11b6jgnf4_?hl=en&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="map-link"
+                            >
+                                View on Google Maps →
+                            </a>
                         </div>
                     </div>
                 </section>
