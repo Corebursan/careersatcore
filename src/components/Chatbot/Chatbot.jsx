@@ -15,6 +15,7 @@ const Chatbot = () => {
         question: ''
     });
     const [formSubmitted, setFormSubmitted] = useState(false);
+    const [showWelcomeMessage, setShowWelcomeMessage] = useState(false);
     const messagesEndRef = useRef(null);
     const inputRef = useRef(null);
 
@@ -40,6 +41,22 @@ const Chatbot = () => {
     useEffect(() => {
         scrollToBottom();
     }, [messages]);
+
+    // Show automatic welcome message pop-up when page loads
+    useEffect(() => {
+        // Check if welcome message was already shown in this session
+        const welcomeShown = sessionStorage.getItem('welcomeMessageShown');
+        
+        if (!welcomeShown) {
+            // Show welcome message after 2 seconds of page load
+            const timer = setTimeout(() => {
+                setShowWelcomeMessage(true);
+                sessionStorage.setItem('welcomeMessageShown', 'true');
+            }, 2000);
+
+            return () => clearTimeout(timer);
+        }
+    }, []);
 
     // Initial greeting when chat opens
     useEffect(() => {
@@ -216,6 +233,22 @@ const Chatbot = () => {
 
     return (
         <div className="chatbot-container">
+            {/* Automatic Welcome Message Pop-up */}
+            {showWelcomeMessage && (
+                <div className="welcome-popup">
+                    <button 
+                        className="welcome-close-btn"
+                        onClick={() => setShowWelcomeMessage(false)}
+                        aria-label="Close welcome message"
+                    >
+                        ✕
+                    </button>
+                    <div className="welcome-message-content">
+                        <p>Welcome to our site, if you need help simply reply to this message, we are online and ready to help.</p>
+                    </div>
+                </div>
+            )}
+
             {/* Chat Window */}
             {isOpen && (
                 <div className="chat-window">
@@ -389,7 +422,13 @@ const Chatbot = () => {
             {/* Floating Chat Button */}
             <button 
                 className={`chat-toggle-btn ${isOpen ? 'active' : ''}`}
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={() => {
+                    setIsOpen(!isOpen);
+                    // Close welcome message when chat is opened
+                    if (!isOpen) {
+                        setShowWelcomeMessage(false);
+                    }
+                }}
             >
                 {isOpen ? (
                     <span className="close-icon">✕</span>
@@ -397,6 +436,7 @@ const Chatbot = () => {
                     <>
                         <span className="chat-icon">💬</span>
                         <span className="pulse-ring"></span>
+                        {showWelcomeMessage && <span className="notification-badge">1</span>}
                     </>
                 )}
             </button>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import logoWithoutBackground from '../assets/LogoWithoutBackgroung.jpg';
 import './Header.css';
 
 const Header = () => {
@@ -64,14 +65,7 @@ const Header = () => {
                     {/* Logo and Navigation */}
                     <div className="logo-nav-container">
                         <Link to="/" className="logo">
-                            <div className="logo-icon">
-                                <div className="logo-bars">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                            </div>
-                            <span className="logo-text">ORE</span>
+                            <img src={logoWithoutBackground} alt="CORE Careers Private Limited" className="logo-image" />
                             <span className="beta-badge">BETA</span>
                         </Link>
 

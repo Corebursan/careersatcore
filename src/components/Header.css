@@ -130,44 +130,10 @@
     text-decoration: none;
 }
 
-.logo-icon {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    margin-right: 2px;
-}
-
-.logo-bars {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.logo-bars span {
-    display: block;
-    height: 6px;
-    background-color: #555;
-    border-radius: 1px;
-}
-
-.logo-bars span:nth-child(1) {
-    width: 25px;
-}
-
-.logo-bars span:nth-child(2) {
-    width: 20px;
-}
-
-.logo-bars span:nth-child(3) {
-    width: 15px;
-}
-
-.logo-text {
-    font-size: 36px;
-    font-weight: 800;
-    color: #555;
-    letter-spacing: -2px;
-    font-family: 'Roboto', sans-serif;
+.logo-image {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
 }
 
 .beta-badge {
@@ -376,8 +342,8 @@
         width: 100%;
     }
 
-    .logo-text {
-        font-size: 28px;
+    .logo-image {
+        height: 40px;
     }
 }
 

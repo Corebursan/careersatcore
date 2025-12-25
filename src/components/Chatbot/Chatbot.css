@@ -7,6 +7,85 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/* Welcome Pop-up Message */
+.welcome-popup {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 320px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    animation: slideDown 0.4s ease;
+    z-index: 10000;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.welcome-close-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: #f0f0f0;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #666;
+    transition: all 0.2s ease;
+    padding: 0;
+}
+
+.welcome-close-btn:hover {
+    background: #e0e0e0;
+    color: #333;
+}
+
+.welcome-message-content {
+    padding-right: 10px;
+}
+
+.welcome-message-content p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* Notification Badge on Chat Button */
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 22px;
+    height: 22px;
+    background: #e74c3c;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    border: 2px solid white;
+    animation: pulse 2s infinite;
+}
+
 /* Chat Toggle Button */
 .chat-toggle-btn {
     width: 60px;
@@ -570,6 +649,13 @@
     .chatbot-container {
         bottom: 15px;
         right: 15px;
+    }
+
+    .welcome-popup {
+        width: calc(100vw - 30px);
+        max-width: 320px;
+        bottom: 70px;
+        right: -5px;
     }
 
     .chat-window {
