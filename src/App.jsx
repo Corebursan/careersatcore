@@ -1,6 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import Header from './components/Header';
+import Footer from './components/Footer';
+import Chatbot from './components/Chatbot/Chatbot';
+import { AppProvider } from './context/AppContext';
 import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
 import Services from './pages/Services';
@@ -15,37 +18,37 @@ import Internships from './pages/Internships';
 import TrainingProgram from './pages/TrainingProgram';
 import BlueCollar from './pages/BlueCollar';
 import Outsourcing from './pages/Outsourcing';
-import Footer from './components/Footer';
-import Chatbot from './components/Chatbot/Chatbot';
 
 function App() {
   return (
-    <Router basename="/careersatcore">
-      <ScrollToTop />
-      <div className="app">
-        <Header />
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about-us" element={<AboutUs />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/clients" element={<Clients />} />
-            <Route path="/jobs" element={<Jobs />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/terms-of-service" element={<TermsOfService />} />
-            <Route path="/resume-writing" element={<ResumeWriting />} />
-            <Route path="/internships" element={<Internships />} />
-            <Route path="/training-program" element={<TrainingProgram />} />
-            <Route path="/blue-collar" element={<BlueCollar />} />
-            <Route path="/outsourcing" element={<Outsourcing />} />
-          </Routes>
-        </main>
-        <Footer />
-        <Chatbot />
-      </div>
-    </Router>
+    <AppProvider>
+      <Router basename="/careersatcore">
+        <ScrollToTop />
+        <div className="app">
+          <Header />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about-us" element={<AboutUs />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/clients" element={<Clients />} />
+              <Route path="/jobs" element={<Jobs />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-of-service" element={<TermsOfService />} />
+              <Route path="/resume-writing" element={<ResumeWriting />} />
+              <Route path="/internships" element={<Internships />} />
+              <Route path="/training-program" element={<TrainingProgram />} />
+              <Route path="/blue-collar" element={<BlueCollar />} />
+              <Route path="/outsourcing" element={<Outsourcing />} />
+            </Routes>
+          </main>
+          <Footer />
+          <Chatbot />
+        </div>
+      </Router>
+    </AppProvider>
   )
 }
 
