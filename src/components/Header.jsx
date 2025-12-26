@@ -1,33 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo, useCallback, memo } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logoWithoutBackground from '../assets/LogoWithoutBackgroung.jpg';
 import './Header.css';
 
-const Header = () => {
+// Extract static data outside component
+const ABOUT_US_DROPDOWN = [
+    { label: 'Company Profile', id: 'company-profile' },
+    { label: 'Why Core', id: 'why-core' },
+    { label: 'Recruitment process with process flow', id: 'recruitment-process' },
+    { label: 'Client Testimonials', id: 'client-testimonials' },
+    { label: 'Global Presence', id: 'global-presence' },
+];
+
+const SERVICES_DROPDOWN = [
+    { label: 'Permanent Recruitment', id: 'permanent-recruitment' },
+    { label: 'Bulk Hiring', id: 'bulk-hiring' },
+    { label: 'Outsourcing', id: 'outsourcing' },
+    { label: 'Blue collar', id: 'blue-collar' },
+    { label: 'Internships', id: 'internships' },
+    { label: 'Recruitment for job seekers', id: 'recruitment-job-seekers' },
+    { label: 'Training Program', id: 'training-program' },
+    { label: 'Resume Writing', id: 'resume-writing' },
+];
+
+const Header = memo(() => {
     const location = useLocation();
     const navigate = useNavigate();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-    const aboutUsDropdown = [
-        { label: 'Company Profile', id: 'company-profile' },
-        { label: 'Why Core', id: 'why-core' },
-        { label: 'Recruitment process with process flow', id: 'recruitment-process' },
-        { label: 'Client Testimonials', id: 'client-testimonials' },
-        { label: 'Global Presence', id: 'global-presence' },
-    ];
-
-    const servicesDropdown = [
-        { label: 'Permanent Recruitment', id: 'permanent-recruitment' },
-        { label: 'Bulk Hiring', id: 'bulk-hiring' },
-        { label: 'Outsourcing', id: 'outsourcing' },
-        { label: 'Blue collar', id: 'blue-collar' },
-        { label: 'Internships', id: 'internships' },
-        { label: 'Recruitment for job seekers', id: 'recruitment-job-seekers' },
-        { label: 'Training Program', id: 'training-program' },
-        { label: 'Resume Writing', id: 'resume-writing' },
-    ];
-
-    const handleDropdownClick = (path, sectionId) => {
+    const handleDropdownClick = useCallback((path, sectionId) => {
         navigate(path);
         // Wait for navigation to complete then scroll to section
         setTimeout(() => {
@@ -36,11 +37,19 @@ const Header = () => {
                 element.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }, 100);
-    };
+    }, [navigate]);
 
-    const isActive = (path) => {
+    const isActive = useCallback((path) => {
         return location.pathname === path;
-    };
+    }, [location.pathname]);
+
+    const toggleMobileMenu = useCallback(() => {
+        setMobileMenuOpen(prev => !prev);
+    }, []);
+
+    const closeMobileMenu = useCallback(() => {
+        setMobileMenuOpen(false);
+    }, []);
 
     return (
         <header className="header">
@@ -72,7 +81,7 @@ const Header = () => {
                         {/* Mobile Menu Toggle */}
                         <button 
                             className="mobile-menu-toggle"
-                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                            onClick={toggleMobileMenu}
                         >
                             <span></span>
                             <span></span>
@@ -86,7 +95,7 @@ const Header = () => {
                                     <Link 
                                         to="/" 
                                         className={`nav-link ${isActive('/') ? 'active' : ''}`}
-                                        onClick={() => setMobileMenuOpen(false)}
+                                        onClick={closeMobileMenu}
                                     >
                                         Home
                                     </Link>
@@ -97,18 +106,18 @@ const Header = () => {
                                     <Link 
                                         to="/about-us" 
                                         className={`nav-link ${isActive('/about-us') ? 'active' : ''}`}
-                                        onClick={() => setMobileMenuOpen(false)}
+                                        onClick={closeMobileMenu}
                                     >
                                         About Us
                                     </Link>
                                     <div className="dropdown">
                                         <ul className="dropdown-menu">
-                                            {aboutUsDropdown.map((item, index) => (
+                                            {ABOUT_US_DROPDOWN.map((item, index) => (
                                                 <li key={index}>
                                                     <button 
                                                         onClick={() => {
                                                             handleDropdownClick('/about-us', item.id);
-                                                            setMobileMenuOpen(false);
+                                                            closeMobileMenu();
                                                         }}
                                                         className="dropdown-link"
                                                     >
@@ -125,18 +134,18 @@ const Header = () => {
                                     <Link 
                                         to="/services" 
                                         className={`nav-link ${isActive('/services') ? 'active' : ''}`}
-                                        onClick={() => setMobileMenuOpen(false)}
+                                        onClick={closeMobileMenu}
                                     >
                                         Services
                                     </Link>
                                     <div className="dropdown">
                                         <ul className="dropdown-menu">
-                                            {servicesDropdown.map((item, index) => (
+                                            {SERVICES_DROPDOWN.map((item, index) => (
                                                 <li key={index}>
                                                     <button 
                                                         onClick={() => {
                                                             handleDropdownClick('/services', item.id);
-                                                            setMobileMenuOpen(false);
+                                                            closeMobileMenu();
                                                         }}
                                                         className="dropdown-link"
                                                     >
@@ -152,7 +161,7 @@ const Header = () => {
                                     <Link 
                                         to="/clients" 
                                         className={`nav-link ${isActive('/clients') ? 'active' : ''}`}
-                                        onClick={() => setMobileMenuOpen(false)}
+                                        onClick={closeMobileMenu}
                                     >
                                         Clients
                                     </Link>
@@ -162,7 +171,7 @@ const Header = () => {
                                     <Link 
                                         to="/jobs" 
                                         className={`nav-link ${isActive('/jobs') ? 'active' : ''}`}
-                                        onClick={() => setMobileMenuOpen(false)}
+                                        onClick={closeMobileMenu}
                                     >
                                         Jobs
                                     </Link>
@@ -172,7 +181,7 @@ const Header = () => {
                                     <Link 
                                         to="/register" 
                                         className={`nav-link ${isActive('/register') ? 'active' : ''}`}
-                                        onClick={() => setMobileMenuOpen(false)}
+                                        onClick={closeMobileMenu}
                                     >
                                         Register
                                     </Link>
@@ -182,7 +191,7 @@ const Header = () => {
                                     <Link 
                                         to="/contact" 
                                         className={`nav-link ${isActive('/contact') ? 'active' : ''}`}
-                                        onClick={() => setMobileMenuOpen(false)}
+                                        onClick={closeMobileMenu}
                                     >
                                         Contact
                                     </Link>
@@ -194,6 +203,8 @@ const Header = () => {
             </div>
         </header>
     );
-};
+});
+
+Header.displayName = 'Header';
 
 export default Header;

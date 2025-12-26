@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import './Jobs.css';
+import { FILTER_OPTIONS } from '../constants/filterOptions';
 
 const Jobs = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -19,6 +20,39 @@ const Jobs = () => {
     });
     const [selectedJob, setSelectedJob] = useState(null);
     const [showJobDetails, setShowJobDetails] = useState(false);
+    const [selectedJobCardId, setSelectedJobCardId] = useState(null);
+
+    // Function to close modal and scroll to job card - memoized
+    const closeModalAndScroll = useCallback(() => {
+        setShowJobDetails(false);
+        
+        // Use setTimeout to ensure modal closes first, then scroll
+        setTimeout(() => {
+            if (selectedJobCardId) {
+                const jobCard = document.getElementById(selectedJobCardId);
+                if (jobCard) {
+                    // Calculate offset to account for fixed header and search bar
+                    const headerHeight = 120; // Header height
+                    const searchBarHeight = 100; // Search bar height
+                    const offset = headerHeight + searchBarHeight + 20; // Extra padding
+                    
+                    const elementPosition = jobCard.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - offset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Add highlight effect
+                    jobCard.classList.add('job-card-highlight');
+                    setTimeout(() => {
+                        jobCard.classList.remove('job-card-highlight');
+                    }, 2000);
+                }
+            }
+        }, 100);
+    }, [selectedJobCardId]);
     
     // Filter states - all support multiple selections
     const [selectedDepartments, setSelectedDepartments] = useState([]);
@@ -33,17 +67,19 @@ const Jobs = () => {
     const [selectedPostedDates, setSelectedPostedDates] = useState([]);
     const [selectedEndDates, setSelectedEndDates] = useState([]);
 
-    // Filter options
-    const departments = ['IT/Software', 'Sales & Marketing', 'HR', 'Finance', 'Operations', 'Engineering', 'Product', 'Design', 'Customer Support', 'Legal', 'Administration', 'Manufacturing', 'Healthcare', 'Education'];
-    const jobTypes = ['Full-time', 'Part-time', 'Internship', 'Freelance', 'Contract', 'Temporary'];
-    const employmentTypes = ['Permanent', 'Contract', 'Temporary'];
-    const experiences = ['Fresher', '0-2 years', '2-5 years', '5-10 years', '10+ years'];
-    const workModes = ['Remote', 'On-site', 'Hybrid'];
-    const locations = ['Mumbai', 'Delhi', 'Bangalore', 'Chennai', 'Hyderabad', 'Pune', 'Kolkata', 'Ahmedabad', 'Jaipur', 'Noida'];
-    const qualifications = ['10th', '12th', 'Diploma', 'Graduate', 'Post Graduate', 'PhD', 'Other'];
-    const salaryRanges = ['0-5 Lakhs', '5-10 Lakhs', '10-15 Lakhs', '15-20 Lakhs', '20-25 Lakhs', '25-30 Lakhs', '30-50 Lakhs', '50+ Lakhs'];
-    const openingsOptions = ['Less than 10', 'Less than 50', 'Less than 100', 'Less than 200', 'Less than 300', '300+'];
-    const dateOptions = ['Any time', 'Today', 'Past week', 'Past month'];
+    // Use filter options from constants
+    const { 
+        departments, 
+        jobTypes, 
+        employmentTypes, 
+        experiences, 
+        workModes, 
+        locations, 
+        qualifications, 
+        salaryRanges, 
+        openingsOptions, 
+        dateOptions 
+    } = FILTER_OPTIONS;
 
     // Default/mock job data - used as fallback
     const defaultJobs = [
@@ -479,7 +515,7 @@ const Jobs = () => {
 
     // Initial fetch and refetch when filters change
     useEffect(() => {
-        fetchJobs(pagination.currentPage);
+        fetchJobs(1); // Always start from page 1 when filters change
     }, [
         selectedDepartments, selectedJobTypes, selectedEmploymentTypes, 
         selectedExperiences, selectedWorkModes, selectedLocations, 
@@ -487,14 +523,14 @@ const Jobs = () => {
         selectedPostedDates, selectedEndDates
     ]);
 
-    // Helper function to handle checkbox toggle
-    const toggleFilter = (filterArray, setFilterArray, value) => {
+    // Helper function to handle checkbox toggle - memoized
+    const toggleFilter = useCallback((filterArray, setFilterArray, value) => {
         if (filterArray.includes(value)) {
             setFilterArray(filterArray.filter(item => item !== value));
         } else {
             setFilterArray([...filterArray, value]);
         }
-    };
+    }, []);
 
     // Helper function to check if salary matches selected ranges
     const matchesSalaryRange = (jobSalary, selectedRanges) => {
@@ -559,8 +595,8 @@ const Jobs = () => {
         });
     };
 
-    // Filter jobs based on all selected criteria
-    const filteredJobs = jobs.filter(job => {
+    // Filter jobs based on all selected criteria - memoized for performance
+    const filteredJobs = useMemo(() => jobs.filter(job => {
         // Search filter
         const matchesSearch = searchTerm === '' || 
             job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -609,10 +645,14 @@ const Jobs = () => {
         return matchesSearch && matchesDepartment && matchesJobType && matchesEmploymentType &&
             matchesExperience && matchesWorkMode && matchesLocation && matchesQualification &&
             matchesSalary && matchesOpeningsFilter && matchesPostedDate && matchesEndDate;
-    });
+    }), [
+        jobs, searchTerm, selectedDepartments, selectedJobTypes, selectedEmploymentTypes,
+        selectedExperiences, selectedWorkModes, selectedLocations, selectedQualifications,
+        selectedSalaryRanges, selectedOpenings, selectedPostedDates, selectedEndDates
+    ]);
 
-    // Clear all filters
-    const clearFilters = () => {
+    // Clear all filters - memoized
+    const clearFilters = useCallback(() => {
         setSelectedDepartments([]);
         setSelectedJobTypes([]);
         setSelectedEmploymentTypes([]);
@@ -625,7 +665,7 @@ const Jobs = () => {
         setSelectedPostedDates([]);
         setSelectedEndDates([]);
         setSearchTerm('');
-    };
+    }, []);
 
     // Handle scroll to show/hide search bar - hide only when reaching CTA section
     useEffect(() => {
@@ -927,7 +967,7 @@ const Jobs = () => {
                         {!loading && filteredJobs.length > 0 ? (
                             <section className="jobs-list">
                                 {filteredJobs.map(job => (
-                                    <div key={job.id} className="job-card">
+                                    <div key={job.id} id={`job-card-${job.id}`} className="job-card">
                                         <div className="job-header">
                                             <div className="job-title-section">
                                                 <h3>{job.title || 'Job Title'}</h3>
@@ -968,6 +1008,7 @@ const Jobs = () => {
                                                     className="view-details-btn"
                                                     onClick={() => {
                                                         setSelectedJob(job);
+                                                        setSelectedJobCardId(`job-card-${job.id}`);
                                                         setShowJobDetails(true);
                                                     }}
                                                 >
@@ -1030,13 +1071,13 @@ const Jobs = () => {
 
                 {/* Job Details Modal */}
                 {showJobDetails && selectedJob && (
-                    <div className="job-details-modal-overlay" onClick={() => setShowJobDetails(false)}>
+                    <div className="job-details-modal-overlay" onClick={closeModalAndScroll}>
                         <div className="job-details-modal" onClick={(e) => e.stopPropagation()}>
                             <div className="job-details-header">
                                 <h2>{selectedJob.title}</h2>
                                 <button 
                                     className="close-modal-btn"
-                                    onClick={() => setShowJobDetails(false)}
+                                    onClick={closeModalAndScroll}
                                 >
                                     ✕
                                 </button>

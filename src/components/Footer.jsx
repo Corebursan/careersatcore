@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 import logoWithoutBackground from '../assets/LogoWithoutBackgroung.jpg';
 import './Footer.css';
 
-const Footer = () => {
+const Footer = memo(() => {
     return (
         <footer className="footer">
             <div className="footer-content">
@@ -119,7 +119,9 @@ const Footer = () => {
             </div>
         </footer>
     );
-};
+});
+
+Footer.displayName = 'Footer';
 
 export default Footer;
 

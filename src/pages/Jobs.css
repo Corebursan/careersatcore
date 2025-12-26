@@ -342,6 +342,26 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
+.job-card-highlight {
+    animation: highlightPulse 2s ease-in-out;
+    border: 2px solid var(--primary-red);
+}
+
+@keyframes highlightPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7);
+        border-color: var(--primary-red);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(231, 76, 60, 0);
+        border-color: var(--primary-red);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(231, 76, 60, 0);
+        border-color: transparent;
+    }
+}
+
 .job-header {
     display: flex;
     justify-content: space-between;
@@ -502,22 +522,28 @@
     max-width: 800px;
     width: 100%;
     max-height: 90vh;
-    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     animation: slideUp 0.3s ease;
+    overflow: hidden;
 }
 
-.job-details-modal::-webkit-scrollbar {
+.job-details-content::-webkit-scrollbar {
     width: 8px;
 }
 
-.job-details-modal::-webkit-scrollbar-track {
+.job-details-content::-webkit-scrollbar-track {
     background: #f1f1f1;
 }
 
-.job-details-modal::-webkit-scrollbar-thumb {
+.job-details-content::-webkit-scrollbar-thumb {
     background: #888;
     border-radius: 4px;
+}
+
+.job-details-content::-webkit-scrollbar-thumb:hover {
+    background: #666;
 }
 
 .job-details-header {
@@ -529,6 +555,10 @@
     background: linear-gradient(135deg, var(--primary-red) 0%, #c0392b 100%);
     border-radius: 12px 12px 0 0;
     box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .job-details-header h2 {
@@ -562,6 +592,9 @@
 .job-details-content {
     padding: 30px;
     background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+    overflow-y: auto;
+    flex: 1;
+    min-height: 0;
 }
 
 /* Quick Info Cards */
@@ -787,6 +820,10 @@
     align-items: center;
     background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
     border-radius: 0 0 12px 12px;
+    flex-shrink: 0;
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
 }
 
 .job-details-footer .apply-btn {
