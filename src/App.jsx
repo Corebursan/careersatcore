@@ -20,7 +20,7 @@ import Chatbot from './components/Chatbot/Chatbot';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/careersatcore">
       <ScrollToTop />
       <div className="app">
         <Header />

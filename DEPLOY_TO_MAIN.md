@@ -22,8 +22,10 @@ git push origin main
 
 1. Go to your repository on GitHub
 2. Click **Settings** → **Pages**
-3. Under **Source**, select **GitHub Actions**
-4. Click **Save**
+3. Under **Source**, select **Deploy from a branch**
+4. Select branch: `gh-pages`
+5. Select folder: `/ (root)`
+6. Click **Save**
 
 ### 3. Verify Deployment
 
@@ -56,8 +58,9 @@ git push origin main
 
 ## Important Notes
 
-- The GitHub Actions workflow is now configured to **only deploy from main branch**
-- Every push to main will automatically trigger a deployment
+- The GitHub Actions workflow is configured to deploy from the **main branch** to the **gh-pages branch**
+- Every push to main will automatically trigger a deployment to gh-pages
 - The deployment takes about 2-3 minutes to complete
 - You can monitor the deployment in the **Actions** tab
+- Make sure GitHub Pages is configured to serve from the `gh-pages` branch in repository settings
 
