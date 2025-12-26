@@ -12,7 +12,7 @@ This guide will help you deploy the CORE Careers website to GitHub Pages.
 
 ### Method 1: Automatic Deployment via GitHub Actions (Recommended)
 
-The project includes a GitHub Actions workflow that automatically deploys your site when you push to the main/master branch.
+The project includes a GitHub Actions workflow that automatically deploys your site to the `gh-pages` branch when you push to the main branch.
 
 #### Steps:
 
@@ -26,28 +26,31 @@ The project includes a GitHub Actions workflow that automatically deploys your s
 2. **Enable GitHub Pages:**
    - Go to your repository on GitHub
    - Click on **Settings** → **Pages**
-   - Under **Source**, select **GitHub Actions**
-   - Save the changes
+   - Under **Source**, select **Deploy from a branch**
+   - Select branch: `gh-pages`
+   - Select folder: `/ (root)`
+   - Click **Save**
 
 3. **Update Base Path (if needed):**
-   - If your repository is NOT named "Core", update `vite.config.js`:
+   - If your repository is NOT named "careersatcore", update `vite.config.js`:
      ```javascript
-     base: process.env.NODE_ENV === 'production' ? '/YOUR-REPO-NAME/' : '/',
+     base: '/YOUR-REPO-NAME/',
      ```
    - If deploying to `username.github.io` (root domain), use:
      ```javascript
-     base: process.env.NODE_ENV === 'production' ? '/' : '/',
+     base: '/',
      ```
 
 4. **Trigger Deployment:**
-   - Push any change to trigger the workflow
+   - Push any change to the `main` branch to trigger the workflow
    - Or go to **Actions** tab → **Deploy to GitHub Pages** → **Run workflow**
 
 5. **Check Deployment:**
    - Go to **Actions** tab to see the deployment progress
-   - Once complete, your site will be available at:
-     - `https://YOUR-USERNAME.github.io/Core/` (if repo is named "Core")
-     - `https://YOUR-USERNAME.github.io/` (if repo is username.github.io)
+   - Once complete, the workflow will push to the `gh-pages` branch
+   - Your site will be available at:
+     - `https://corebursan.github.io/careersatcore/` (for this repository)
+     - `https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/` (for other repositories)
 
 ### Method 2: Manual Deployment
 
@@ -79,7 +82,7 @@ The project includes a GitHub Actions workflow that automatically deploys your s
 
 The `base` path in `vite.config.js` must match your repository structure:
 
-- **Repository named "Core"**: `/Core/`
+- **Repository named "careersatcore"**: `/careersatcore/` (current setup)
 - **Repository named "username.github.io"**: `/`
 - **Any other repository name**: `/REPOSITORY-NAME/`
 
@@ -127,7 +130,7 @@ After making changes:
    git commit -m "Update site"
    git push origin main
    ```
-   The GitHub Action will automatically rebuild and deploy.
+   The GitHub Action will automatically build and deploy to the `gh-pages` branch.
 
 2. **For Manual Deployment:**
    ```bash
